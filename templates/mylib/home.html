@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Моя библиотека</title>
+</head>
+<body>
+    <form action="/add_book">
+        <h1>Список книг</h1>
+        <button>Добавить книгу</button>
+    </form>
+    
+    <table>
+        {% for book in books %}
+            <tr>
+                <td>
+                    Название: {{ book.title }}, автор {{ book.author }}, цена: {{ book.price }}
+                </td>
+                <td>
+                    <form action="/delete/{{ book.id }}">
+                        <button>Удалить книгу</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="/edit/{{ book.id }}">
+                        <button>Изменить книгу</button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    
+
+</body>
+</html>
